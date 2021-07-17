@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'card.dart';
 
 const activeCardColor = Color(0xFF1D1E33);
 
@@ -22,47 +23,19 @@ class _InputPageState extends State<InputPage> {
             children: <Widget>[
               Expanded(
                 child: ReusableCard(
-                  color: activeCardColor,
-                  cardChild: Column(
-                    children: <Widget>[
-                      Icon(
-                        FontAwesomeIcons.mars,
-                        size: 80.0,
-                      ),
-                      SizedBox(
-                        height: 15.0,
-                      ),
-                      Text(
-                        'MALE',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Color(0xFF8D8E98),
-                        ),
-                      ),
-                    ],
+                  color1: activeCardColor,
+                  cardChild: IconContent(
+                    icon: FontAwesomeIcons.mars,
+                    label: 'MALE',
                   ),
                 ),
               ),
               Expanded(
                 child: ReusableCard(
-                  color: activeCardColor,
-                  cardChild: Column(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.mars,
-                        size: 80.0,
-                      ),
-                      SizedBox(
-                        height: 15.0,
-                      ),
-                      Text(
-                        'MALE',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Color(0xFF8D8E98),
-                        ),
-                      ),
-                    ],
+                  color1: activeCardColor,
+                  cardChild: IconContent(
+                    icon: FontAwesomeIcons.mars,
+                    label: 'MALE',
                   ),
                 ),
               )
@@ -70,25 +43,7 @@ class _InputPageState extends State<InputPage> {
           )),
           Expanded(
             child: ReusableCard(
-              color: activeCardColor,
-              cardChild: Column(
-                children: [
-                  Icon(
-                    FontAwesomeIcons.mars,
-                    size: 80.0,
-                  ),
-                  SizedBox(
-                    height: 15.0,
-                  ),
-                  Text(
-                    'MALE',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: Color(0xFF8D8E98),
-                    ),
-                  ),
-                ],
-              ),
+              color1: activeCardColor,
             ),
           ),
           Expanded(
@@ -96,48 +51,12 @@ class _InputPageState extends State<InputPage> {
             children: [
               Expanded(
                 child: ReusableCard(
-                  color: activeCardColor,
-                  cardChild: Column(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.mars,
-                        size: 80.0,
-                      ),
-                      SizedBox(
-                        height: 15.0,
-                      ),
-                      Text(
-                        'MALE',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Color(0xFF8D8E98),
-                        ),
-                      ),
-                    ],
-                  ),
+                  color1: activeCardColor,
                 ),
               ),
               Expanded(
                 child: ReusableCard(
-                  color: activeCardColor,
-                  cardChild: Column(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.mars,
-                        size: 80.0,
-                      ),
-                      SizedBox(
-                        height: 15.0,
-                      ),
-                      Text(
-                        'MALE',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Color(0xFF8D8E98),
-                        ),
-                      ),
-                    ],
-                  ),
+                  color1: activeCardColor,
                 ),
               )
             ],
@@ -154,19 +73,31 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class ReusableCard extends StatelessWidget {
-  final Color color;
-  final Widget cardChild;
-  ReusableCard({required this.color, required this.cardChild});
+class IconContent extends StatelessWidget {
+  IconContent({this.icon, required this.label});
+
+  final IconData? icon;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: color,
-      ),
+    return Column(
+      children: <Widget>[
+        Icon(
+          icon,
+          size: 80.0,
+        ),
+        SizedBox(
+          height: 15.0,
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 18.0,
+            color: Color(0xFF8D8E98),
+          ),
+        ),
+      ],
     );
   }
 }
