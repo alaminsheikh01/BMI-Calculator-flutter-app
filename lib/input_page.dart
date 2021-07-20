@@ -1,3 +1,4 @@
+import 'results_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'card.dart';
@@ -204,11 +205,24 @@ class _InputPageState extends State<InputPage> {
               )
             ],
           )),
-          Container(
-            color: Color(0xFFEB1555),
-            height: 80.0,
-            width: double.infinity,
-            margin: EdgeInsets.only(top: 10.0),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ResultPage();
+                  },
+                ),
+              );
+            },
+            child: Container(
+              child: Text('CALCULATE'),
+              color: Color(0xFFEB1555),
+              height: 80.0,
+              width: double.infinity,
+              margin: EdgeInsets.only(top: 10.0),
+            ),
           )
         ],
       ),
